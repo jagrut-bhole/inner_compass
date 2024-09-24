@@ -4,17 +4,19 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 require("dotenv").config();
-
+const session = require("express-session");
+const flash = require("connect-flash");
 // var indexRouter = require("./routes/index");
 
 
 const { default: mongoose } = require("mongoose");
 const bodyParser = require("body-parser");
 
+
 var app = express();
 
-// Same route but different page
-app.use(useragent.express());
+
+
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
