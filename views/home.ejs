@@ -5,15 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
 
 </head>
 <body>
-    <nav class="flex">
-        <p></p>
-         
+<div class="w-full top-0 h-screen">
+
+    
+    <nav class="flex justify-between items-center h-20 px-10 relative">
+        <p class="font-mono text-2xl tracking-wide">inner_compass</p>
+        <div class="flex gap-24">
+            <p>Awareness</p>
+            <p>About</p>
+        </div>
+        <div class="flex gap-10">
+            <button class="px-4 py-2 border rounded-md">Login</button>
+            <button class="p-2 bg-purple-500 text-white rounded-md">Get Started</button>
+        </div>
     </nav>
 
-    <script src="../javascripts/home.js"></script>
+    <div id="hero" class="w-full h-screen blur-3xl flex justify-center items-center relative z-10">   
+    </div>
+    <div class="w-full h-screen absolute z-99 top-0 flex flex-col justify-center items-center">
+        <p class="text-purple-600 text-8xl font-bold">Find Yourself!</p>
+        <p>Find the bullshit you been feeling these day.</p>
+    </div>
+
+
+</div>
+
+
+
+<div class="w-full h-screen flex justify-center items-center flex-wrap gap-40">
+    <div id="cards">
+        <div class="card bg-gradient-to-br from-black/10 to-white/40 backdrop-blur-xl">
+          <div class="card-content">
+            <div class="card-image">
+              <i class="fa-duotone fa-blender-phone"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-duotone fa-blender-phone"></i>
+                <div class="card-info-title">
+                  <h3>Blender Phones</h3>  
+                  <h4>These absolutely deserve to exist.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-gradient-to-br from-black/10 to-white/40 backdrop-blur-xl">
+            <div class="card-content">
+            <div class="card-image">
+              <i class="fa-duotone fa-person-to-portal"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-duotone fa-person-to-portal"></i>
+                <div class="card-info-title">
+                  <h3>Adios</h3>  
+                  <h4>See you...</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-gradient-to-br from-black/10 to-white/40 backdrop-blur-xl">
+            <div class="card-content">
+            <div class="card-image">
+              <i class="fa-duotone fa-person-from-portal"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-duotone fa-person-from-portal"></i>
+                <div class="card-info-title">
+                  <h3>I mean hello</h3>  
+                  <h4>...over here.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-gradient-to-br from-black/10 to-white/40 backdrop-blur-xl">
+            <div class="card-content">
+            <div class="card-image">
+              <i class="fa-duotone fa-otter"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-duotone fa-otter"></i>
+                <div class="card-info-title">
+                  <h3>Otters</h3>  
+                  <h4>Look at me, imma cute lil fella.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</div>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/javascripts/home.js"></script>
+    <script>
+        function radarAnim(){
+            const div = document.createElement("div");
+            div.classList.add("w-96", "h-96", "rounded-full", "bg-purple-500", "absolute");
+            div.id = "radar";
+            document.getElementById("hero").appendChild(div);
+            gsap.to("#radar", {
+                scale: 3,
+                duration: 3,
+                opacity: 0,
+                ease: "power2.out",
+                onComplete: () => {
+                    document.getElementById("radar").remove();
+                }
+            });
+        }
+
+
+
+       setInterval(radarAnim, 1500);
+    </script>
 </body>
 </html>
