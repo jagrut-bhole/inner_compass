@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/signup.css">
+    <title>Sign Up - Inner Compass</title>
+</head>
+<body>
+    <form class="form" method="POST" action="/signup">
+        <p class="title">Register </p>
+        <p class="message">Signup now and get full access to our app. </p>
+            <div class="flex">
+            <label>
+                <input required="" name="firstname" placeholder="" type="text" class="input">
+                <span>Firstname</span>
+                <span class="firstname error"></span>
+            </label>
+    
+            <label>
+                <input required="" name="lastname" placeholder="" type="text" class="input">
+                <span>Lastname</span>
+                <span class="lastname error"></span>
+            </label>
+        </div>  
+
+        <label>
+            <input required="" placeholder="" name="age" type="number" class="input">
+            <span>Age</span>
+            <span class="age error"></span>
+        </label>
+
+        <!-- <input type="radio" name="gender" id="gender" value="MEN">
+        <label for="MEN">MEN</label>
+        <br>
+        <input type="radio" name="gender" id="gender" value="WOMEN">
+        <label for="WOMEN">WOMEN</label> -->
+                
+        <label>
+            <input required="" placeholder="" name="email" type="email" class="input">
+            <span>Email</span>
+            <span class="email error"></span>
+        </label> 
+            
+        <label>
+            <input required="" placeholder="" name="password" type="password" class="input">
+            <span>Password</span>
+            <span class="password error"></span>
+        </label>
+        <button class="submit">Submit</button>
+        <p class="signin">Already have an account ? <a href="/login">Signin</a> </p>
+    </form>
+</body>
+</html>

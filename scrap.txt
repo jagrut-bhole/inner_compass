@@ -1,0 +1,54 @@
+Thresholds for Diagnosis:
+
+Score 40-50: Severe depression.
+Score 30-39: Moderate depression.
+Score 20-29: Mild depression.
+Score below 20: No signs of depression.
+
+------------------------------------------------------
+
+Questions
+
+How often have you felt little interest or pleasure in doing things?
+
+How often have you felt down, depressed, or hopeless?
+
+How often have you felt trouble concentrating on things, such as reading or watching TV?
+
+How often have you felt tired or had little energy?
+
+How often have you had trouble falling or staying asleep, or slept too much?
+
+How often have you felt bad about yourself — or that you are a failure or have let yourself or your family down?
+
+How often have you felt fidgety or restless, like you were unable to sit still?
+
+How often have you found it difficult to relax?
+
+How often have you experienced changes in appetite (either overeating or loss of appetite)?
+
+How often have you had thoughts that you would be better off dead or of hurting yourself?
+
+---------------------------------------------------------------
+
+question set 2
+
+How often do you feel happy and content with your life?
+
+How often do you feel overwhelmed by your responsibilities?
+
+How often do you feel anxious or worried about things in your life?
+
+How often do you feel physically exhausted even after getting enough rest?
+
+How often do you feel disconnected or detached from people around you?
+
+How often do you experience feelings of anger or frustration?
+
+How often do you feel like you’re not good enough or failing in life?
+
+How often do you feel motivated to take on new challenges or activities?
+
+How often do you feel hopeless or that things won’t improve?
+
+How often do you experience difficulty focusing or concentrating on tasks?

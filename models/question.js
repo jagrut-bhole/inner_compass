@@ -6,16 +6,11 @@ const questionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    options: [
-        {
-            optionText: String,
-            score: Number // Score associated with this option
-        }
-    ],
-    category: {
-        type: String,
-        required: true // e.g., "Depression", "Anxiety", etc.
-    }
+    levels:{
+        type: [Number],
+        required: true,
+        default: [1, 2, 3, 4, 5],
+    },
 });
 
 module.exports =  mongoose.model('Question', questionSchema);
