@@ -2,32 +2,32 @@ const Question = require("../models/question");
 
 const Result = require("../models/result");
 
-const User = require("../models/user");
-
 module.exports.questions_get = async (req, res) => {
   try {
     const questions = await Question.find();
+    console.log("Questions fetched: ", questions);
     res.render("questionnaire", { questions });
   } catch (err) {
-    console.error(err.message);
+    console.error("Full error: ", err); // Log the full error object
     res.status(500).send("Error Fetching the Questions");
   }
 };
 
+
 module.exports.questions_submit_post = async (req, res) => {
   try {
-    // Assuming req.user contains the currently logged-in user (you can use Passport.js for this)
-    const userId = req.user ? req.user._id : null; // Replace with your authentication logic
+    const userId = req.user ? req.user._id : null; // Assuming authentication
     if (!userId) {
       return res.status(401).send("User not authenticated");
     }
 
-    const questions = await Question.find({});
+    // Fetch all questions from the database
+    const questions = await Question.find();
     let totalScore = 0;
 
     // Loop through each question and calculate the total score from the answers
     questions.forEach((question, index) => {
-      const answer = parseInt(req.body[`q${index}`]); // Get the answer from the form
+      const answer = parseInt(req.body[`q${index}`]); // Get the selected answer from the form
       if (!isNaN(answer)) {
         totalScore += answer;
       }
