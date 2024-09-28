@@ -15,6 +15,7 @@ router.get("/blogs", (req, res) => {
 router.get("/api/blogs", async (req, res) => {
   const blogs = await blogSchema.find();
 
+<<<<<<< HEAD
   res.json(blogs);
 });
 
@@ -23,6 +24,29 @@ router.get("/api/blogs/:id", async (req, res) => {
 
   res.json(blogs);
 });
+=======
+router.get("/api/blogs/:id", async (req, res) => {
+  try {
+    const blog = await blogSchema.findById(req.params.id);
+
+    if (!blog) {
+      return res.status(404).send("Blog post not found");
+    }
+
+    // Render the 'blog-details.ejs' file and pass the blog data to it
+    res.json(blog);
+  } catch (err) {
+    res.status(500).send("Server error");
+  }
+});
+
+router.get("/blogs/:id", (req, res) => {
+  const blogId = req.params.id;
+  res.render("blog-details", { blogId });
+});
+
+
+>>>>>>> 061348b11f9be2bc0ebe32da9d548f10af853505
 
 // Question section
 
