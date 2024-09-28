@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
-
 router.get("/blogs", (req, res) => {
   res.render("blogs");
 });
@@ -44,21 +43,19 @@ router.get("/blogs/:id", (req, res) => {
   res.render("blog-details", { blogId });
 });
 
-
-
 // Question section
 
 router.get("/questions", (req, res) => {
   res.render("questionnaire");
 });
 
-router.get('/api/questions', async (req, res) => {
+router.get("/api/questions", async (req, res) => {
   try {
-      const question = await Question.find(); 
-      res.json(question); 
+    const question = await Question.find();
+    res.json(question);
   } catch (error) {
-      console.error('Error fetching questions:', error);
-      res.status(500).json({ error: 'Error fetching questions' });
+    console.error("Error fetching questions:", error);
+    res.status(500).json({ error: "Error fetching questions" });
   }
 });
 
@@ -67,43 +64,47 @@ router.post("/api/submit-quiz", (req, res) => {
   try {
     const { answers } = req.body;
 
-    // Log received answers
     console.log("Received answers:", answers);
 
-    // If no answers are provided, return an error
     if (!answers) {
       console.error("No answers provided");
       return res.status(400).json({ error: "No answers provided" });
     }
 
-    // Calculate total score (make sure calculateScore is correctly defined)
     const totalScore = calculateScore(answers);
 
-    // Determine result based on score
     let resultMessage;
     if (totalScore >= 40) {
-      resultMessage = "You are fully depressed, please seek help.";
+      resultMessage =
+        "You are fully depressed, Help ghe lavdya.... Marshil bhadvya";
     } else {
       resultMessage =
         "You are not depressed, continue to monitor your mental health.";
     }
 
-    console.log("Total score:", totalScore, "Result message:", resultMessage);
+    req.session.resultMessage = resultMessage;
 
-    // Return the result and redirect URL
     res.json({
-      redirectUrl: `/result?message=${encodeURIComponent(resultMessage)}`,
+      redirectUrl: "/result",
     });
   } catch (error) {
-    // Log the error and respond with a 500 status
     console.error("Error processing quiz:", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
+router.get("/result", (req, res) => {
+  const resultMessage = req.session.resultMessage;
+
+  if (!resultMessage) {
+    res.redirect("/questions");
+  }
+
+  res.render("result", { resultMessage });
+});
 function calculateScore(answers) {
   let totalScore = 0;
 
-  // Loop through the answers and sum up the values
   for (const key in answers) {
     totalScore += answers[key];
   }

@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Result | Inner Compass</title>
-</head>
-<body class="bg-gray-100">
-    <div class="container mx-auto mt-12 p-6 text-center">
-        <h2 class="text-3xl font-bold mb-6">Your Mental Health Result</h2>
-        <p id="resultMessage" class="text-xl font-semibold text-red-600"></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result | Inner_Compass</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="result-container">
+      <h1>Your Quiz Result</h1>
+      <p><%= resultMessage %></p>
+      <a href="/quiz" class="btn">Go Back to Quiz</a>
     </div>
-
-    <script>
-        // Get the result message from the URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const message = urlParams.get('message');
-        
-        // Display the result message
-        document.getElementById('resultMessage').innerText = message;
-    </script>
-</body>
+  </body>
 </html>
