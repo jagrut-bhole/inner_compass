@@ -20,7 +20,10 @@ const blogsSchema = new mongoose.Schema({
     pageContent: {
         type: String,
         required: true
-    }
+    },
+    imgURl: {
+        type: String,
+        required: true     }
 });
 
 module.exports =  mongoose.model('Blogs', blogsSchema);
