@@ -3,9 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/questions.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Inner Compass</title>
 </head>
-<body>
-    <h1>Hello</h1>
+<body class="bg-gray-100">
+    
+    <nav class="bg-white shadow">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h3 class="text-2xl font-semibold">Inner Compass</h3>
+            <div class="relative">
+                <img
+                    class="user-pic w-10 h-10 rounded-full cursor-pointer"
+                    src="../images/Make Up.jpg"
+                    alt="User Pic"
+                    onclick="toggleMenu()"
+                />
+                <div class="sub-menu-wrap absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg hidden" id="subMenu">
+                    <div class="sub-menu p-2">
+                        <div class="user-info flex items-center">
+                            <img class="w-8 h-8 rounded-full" src="../images/Make Up.jpg" />
+                            <h3 class="ml-2 font-semibold">JAGRUT</h3>
+                        </div>
+                        <hr class="my-2" />
+                        <a href="/profile" class="sub-menu-link flex items-center p-2 hover:bg-gray-200 rounded">
+                            <img class="w-5 h-5" src="../images/drop-down/profile.png" alt="Profile"/>
+                            <p class="ml-2">Edit Profile</p>
+                        </a>
+                        <a href="/setting" class="sub-menu-link flex items-center p-2 hover:bg-gray-200 rounded">
+                            <img class="w-5 h-5" src="../images/drop-down/setting.png" alt="Settings"/>
+                            <p class="ml-2">Settings</p>
+                        </a>
+                        <a href="/contact-us" class="sub-menu-link flex items-center p-2 hover:bg-gray-200 rounded">
+                            <img class="w-5 h-5" src="../images/drop-down/help.png" alt="Help"/>
+                            <p class="ml-2">Needed Any Help?</p>
+                        </a>
+                        <a href="/logout" class="sub-menu-link flex items-center p-2 hover:bg-gray-200 rounded">
+                            <img class="w-5 h-5" src="../images/drop-down/logout.png" alt="Logout"/>
+                            <p class="ml-2">Log Out</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-6 p-4">
+        <h2 class="text-2xl font-bold mb-4">Mental Health Questionnaire</h2>
+        <div id="questionnaire" class="space-y-4">
+            <!-- Questions will be dynamically inserted here -->
+        </div>
+        <button id="submit" class="mt-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
+    </div>
+
+    <script>
+        let subMenu = document.getElementById("subMenu");
+
+        function toggleMenu() {
+            subMenu.classList.toggle("hidden");
+        }
+
+        // Function to fetch questions from the API
+        async function fetchQuestions() {
+            try {
+                const response = await fetch('/api/questions'); // Update with your API endpoint
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const questions = await response.json();
+                displayQuestions(questions);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        // Function to display questions
+        function displayQuestions(questions) {
+            const questionnaireContainer = document.getElementById("questionnaire");
+            questions.forEach(question => {
+                const questionDiv = document.createElement("div");
+                questionDiv.classList.add("bg-white", "shadow-md", "rounded", "p-4", "border", "border-gray-300");
+                questionDiv.innerHTML = `
+                    <p class="font-semibold mb-2">${question.questions}</p>
+                    <div class="flex space-x-2">
+                        ${question.options.map(option => `
+                            <label class="flex items-center">
+                                <input type="radio" name="${question._id}" value="${option}" class="form-radio text-blue-600">
+                                <span class="ml-2">${option}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                questionnaireContainer.appendChild(questionDiv);
+            });
+        }
+
+        // Call the function to fetch questions when the page loads
+        fetchQuestions();
+    </script>
 </body>
 </html>
