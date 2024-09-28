@@ -1,6 +1,6 @@
 const express = require("express");
 const blogSchema = require("../models/blogs");
-const Question = require("../models/question");
+const questionSchema =  require("../models/question");
 
 const router = express.Router();
 
@@ -8,15 +8,21 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
+<<<<<<< HEAD
 router.get("/blogs", (req, res) => {
+=======
+
+router.get("/blogs",(req,res) =>{
+>>>>>>> 99846b9cf426b4c33fd0527cbee662a5a05360e7
   res.render("blogs");
-});
+})
 
-router.get("/api/blogs", async (req, res) => {
-  const blogs = await blogSchema.find();
+router.get("/api/blogs",async (req,res) =>{
+  const blogs = await blogSchema.find()
 
-  res.json(blogs);
-});
+  res.json(blogs)
+})
+
 
 router.get("/api/blogs/:id", async (req, res) => {
   const blogs = await blogSchema.findById(req.params.id);
