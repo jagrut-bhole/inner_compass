@@ -4,8 +4,9 @@ require("dotenv").config();
 
 //handle errors
 const handleErrors = (err) => {
+  //this shows the error in console.log ex- if one wants to make account using same username/email then the err.message shows to user.
   console.log(err.message, err.code);
-  let errors = { firstname: "", lastname: "", email: "", password: "", age: "" };
+  let errors = { name: "", username: "", email: "", passowrd: "" };
 
   //incorrect email
   if (err.message === "Incorrect email") {
@@ -20,6 +21,8 @@ const handleErrors = (err) => {
   //duplicate error code
   if (err.code === 11000) {
     errors.email = "This email already exists";
+    errors.username = "This username already exists. Please try diffrent one";
+
     return errors;
   }
 
@@ -46,10 +49,10 @@ module.exports.login_get = (req, res) => {
 };
 
 module.exports.signup_post = async (req, res) => {
-  const { firstname, lastname, username, email, password, age } = req.body;
+  const { name, username, email, password } = req.body;
 
   try {
-    const user = await User.create({ firstname, lastname, username, email, password, age });
+    const user = await User.create({ name, username, email, password });
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });

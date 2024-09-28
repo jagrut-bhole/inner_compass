@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+</head>
+<body>
+    <h1>Questionnaire</h1>
+    <form id="questionForm" action="/submit" method="POST">
+        <!-- Sample questions will be inserted here dynamically -->
+    </form>
+    <button type="submit" form="questionForm">Submit</button>
+
+    <script>
+        const questions = [
+            {"question": "How often do you feel tired?", "id": "q1"},
+            {"question": "Do you feel stressed frequently?", "id": "q2"},
+            {"question": "Do you feel motivated to do daily tasks?", "id": "q3"}
+        ];
+
+        const form = document.getElementById('questionForm');
+
+        questions.forEach(q => {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <p>${q.question}</p>
+                <label><input type="radio" name="${q.id}" value="1" required> Very Low</label>
+                <label><input type="radio" name="${q.id}" value="2"> Low</label>
+                <label><input type="radio" name="${q.id}" value="3"> Medium</label>
+                <label><input type="radio" name="${q.id}" value="4"> High</label>
+                <label><input type="radio" name="${q.id}" value="5"> Very High</label>
+            `;
+            form.appendChild(div);
+        });
+    </script>
+</body>
+</html>
