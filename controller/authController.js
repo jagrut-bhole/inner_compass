@@ -21,7 +21,7 @@ const handleErrors = (err) => {
   //duplicate error code
   if (err.code === 11000) {
     errors.email = "This email already exists";
-    errors.username = "This username already exists. Please try diffrent one";
+    errors.username = "This username already exists.";
 
     return errors;
   }
@@ -56,7 +56,6 @@ module.exports.signup_post = async (req, res) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });
-
   } catch (err) {
     const errors = handleErrors(err);
     res.status(400).json({ errors });

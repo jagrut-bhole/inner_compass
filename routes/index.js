@@ -1,8 +1,11 @@
 const express = require("express");
 const blogSchema = require("../models/blogs");
 const questionSchema = require("../models/question");
-
 const router = express.Router();
+
+const {requireAuth,checkUser} = require('../middleware/authmiddleware');
+
+router.get("*", checkUser);
 
 router.get("/", (req, res) => {
   res.render("home");
@@ -45,7 +48,7 @@ router.get("/blogs/:id", (req, res) => {
 
 // Question section
 
-router.get("/questions", (req, res) => {
+router.get("/questions", requireAuth, (req, res) => {
   res.render("questionnaire");
 });
 
@@ -89,7 +92,7 @@ router.post("/api/submit-quiz", (req, res) => {
   }
 });
 
-router.get("/result", (req, res) => {
+router.get("/result", requireAuth, (req, res) => {
   
   console.log("Session resultMessage:", req.session.resultMessage);
 
