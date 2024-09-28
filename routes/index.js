@@ -16,6 +16,7 @@ router.get("/blogs", (req, res) => {
 router.get("/api/blogs", async (req, res) => {
   const blogs = await blogSchema.find();
 
+<<<<<<< HEAD
   res.json(blogs);
 });
 
@@ -24,6 +25,7 @@ router.get("/api/blogs/:id", async (req, res) => {
 
   res.json(blogs);
 });
+=======
 router.get("/api/blogs/:id", async (req, res) => {
   try {
     const blog = await blogSchema.findById(req.params.id);
@@ -43,6 +45,9 @@ router.get("/blogs/:id", (req, res) => {
   const blogId = req.params.id;
   res.render("blog-details", { blogId });
 });
+
+
+>>>>>>> 061348b11f9be2bc0ebe32da9d548f10af853505
 
 // Question section
 
