@@ -9,7 +9,7 @@ const session = require("express-session");
 
 var indexRouter = require("./routes/index");
 var authRouter = require("./routes/authRoutes");
-// var questionRouter = require('./routes/questionRoute');
+var questionRouter = require('./routes/questionRoute');
 
 const { default: mongoose } = require("mongoose");
 const bodyParser = require("body-parser");
@@ -40,7 +40,7 @@ app.use(
 //Routes
 app.use("/", indexRouter);
 app.use(authRouter);
-// app.use("/questions", questionRouter);
+app.use("/questions", questionRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
