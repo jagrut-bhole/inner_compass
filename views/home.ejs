@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/stylesheets/home.css">
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-......" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 <body>
@@ -17,10 +16,15 @@
     <nav class="flex justify-between items-center h-20 px-10 relative">
         <p class="font-mono text-2xl tracking-wide">inner_compass</p>
         <div class="flex gap-24">
+          <a href="/blogs">
             <p>Awareness</p>
+          </a>
+          <a href="/about">
             <p>About</p>
+          </a>
+
         </div>
-        <div class="flex gap-10">
+        <div class="flex gap-10 relative z-[200]">
           <a href="/login">
 
             <button id="loginbutton" class="px-4 py-2 border rounded-md">Login</button>
@@ -39,7 +43,7 @@
         <p class="">Find clarity, one question at a time.</p>
         
     </div>
-    <div class="noise-overlay absolute top-0 left-0 w-full h-full pointer-events-none z-50">
+    <div class="noise-overlay absolute top-0 left-0 w-full h-full z-50">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
             <filter id="noise" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
                 <feTurbulence id="turbulence" type="fractalNoise" baseFrequency='6.29' 
