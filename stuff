@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-......" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+<body class="overflow-x-hidden">
+
+<!-- Main container -->
+<div class="w-full top-0 h-screen grainy-div">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center h-20 px-4 md:px-10 relative">
+        <p class="font-mono text-xl md:text-2xl tracking-wide">inner_compass</p>
+        <div class="hidden md:flex gap-6 md:gap-24">
+          <a href="/blogs">
+            <p>Awareness</p>
+          </a>
+          <a href="/about">
+            <p>About</p>
+          </a>
+        </div>
+        <div class="flex gap-4 md:gap-10 relative z-[200]">
+          <a href="/login">
+            <button id="loginbutton" class="px-4 py-2 border rounded-md">Login</button>
+          </a>
+          <a href="/signup">
+            <button class="p-2 bg-purple-500 text-white rounded-md">Get Started</button>
+          </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="hero" class="w-full h-screen blur-3xl flex justify-center items-center relative z-10">   
+    </div>
+    <div class="w-full h-screen absolute z-99 top-0 flex flex-col justify-center items-center text-center">
+        <p class="text-purple-600 text-5xl md:text-8xl font-bold">Find The Way!</p>
+        <p class="mt-4 md:mt-8 text-md md:text-lg">Find clarity, one question at a time.</p>
+    </div>
+    <div class="noise-overlay absolute top-0 left-0 w-full h-full z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <filter id="noise" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+                <feTurbulence id="turbulence" type="fractalNoise" baseFrequency='6.29' 
+                numOctaves="16" seed="15" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"></feTurbulence>
+                <feSpecularLighting surfaceScale="9" specularConstant="1.1" specularExponent="20" lighting-color="#7957A8" x="0%" y="0%" width="100%" height="100%" in="turbulence" result="specularLighting">
+                        <feDistantLight azimuth="3" elevation="134"></feDistantLight>
+                  </feSpecularLighting>
+            </filter>
+          <rect width="100%" height="100%" filter="url(#noise)" />
+        </svg>
+    </div>
+</div>
+
+<!-- Cards Section -->
+<div class="w-full h-auto flex justify-center items-center flex-wrap py-12 relative">
+  <div id="cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-6xl px-6">
+      <!-- Card 1: Mental Health Tools -->
+      <div class="card bg-gradient-to-br from-black/10 to-white/40 backdrop-blur-xl p-6 rounded-lg">
+        <div class="card-content">
+          <div class="card-image text-4xl text-purple-600">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <div class="card-info-wrapper mt-4">
+            <div class="card-info">
+              <h3 class="text-lg font-semibold">Mental Health Tools</h3>  
+              <h4 class="text-sm mt-2">Discover resources to boost your mental health.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Self-Reflection Journey -->
+      <div class="card bg-gradient-to-br from-black/10 to-white/40 backdrop-blur-xl p-6 rounded-lg">
+          <div class="card-content">
+          <div class="card-image text-4xl text-purple-600">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="card-info-wrapper mt-4">
+            <div class="card-info">
+              <h3 class="text-lg font-semibold">Self-Reflection Journey</h3>  
+              <h4 class="text-sm mt-2">Begin your path to self-awareness.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Support and Guidance -->
+      <div class="card bg-gradient-to-br from-black/10 to-white/40 backdrop-blur-xl p-6 rounded-lg">
+          <div class="card-content">
+          <div class="card-image text-4xl text-purple-600">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <div class="card-info-wrapper mt-4">
+            <div class="card-info">
+              <h3 class="text-lg font-semibold">Support and Guidance</h3>  
+              <h4 class="text-sm mt-2">Connect with others and find your tribe.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Mindfulness Practice -->
+      <div class="card bg-gradient-to-br from-black/10 to-white/40 backdrop-blur-xl p-6 rounded-lg">
+          <div class="card-content">
+          <div class="card-image text-4xl text-purple-600">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <div class="card-info-wrapper mt-4">
+            <div class="card-info">
+              <h3 class="text-lg font-semibold">Mindfulness Practice</h3>  
+              <h4 class="text-sm mt-2">Embrace calm with meditation and mindfulness tips.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="w-full bg-gray-900 text-white py-10">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 md:px-10">
+      <p class="font-mono text-sm md:text-md tracking-wide">&copy; 2024 inner_compass. All rights reserved.</p>
+      <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+          <a href="/terms" class="hover:underline">Terms of Service</a>
+          <a href="/contact" class="hover:underline">Contact Us</a>
+      </div>
+  </div>
+  <div class="container mx-auto mt-6 text-center">
+      <p class="text-gray-400 text-sm">"Discover your mind. Find your peace."</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/javascripts/home.js"></script>
+<script>
+    function radarAnim(){
+        const div = document.createElement("div");
+        div.classList.add("w-96", "h-96", "rounded-full", "bg-purple-500", "absolute");
+        div.id = "radar";
+        document.getElementById("hero").appendChild(div);
+        gsap.to("#radar", {
+            scale: 3,
+            duration: 3,
+            opacity: 0,
+            ease: "power2.out",
+            onComplete: () => {
+                document.getElementById("radar").remove();
+            }
+        });
+    }
+
+
+
+   setInterval(radarAnim, 1500);
+
+
+
+   const turbulence = document.getElementById('turbulence');
+let baseFrequency = 0.5; 
+let increasing = true;
+
+function animateNoise() {
+    if (increasing) {
+        baseFrequency += 0.05; 
+        if (baseFrequency >= 0.7) {
+            increasing = false; // Switch to decreasing when hitting the upper limit
+        }
+    } else {
+        baseFrequency -= 0.05; // Decrease baseFrequency
+        if (baseFrequency <= 0.3) {
+            increasing = true; // Switch to increasing when hitting the lower limit
+        }
+    }
+    turbulence.setAttribute('baseFrequency', baseFrequency.toFixed(2)); // Update the turbulence filter
+    requestAnimationFrame(animateNoise); // Recursive animation loop
+}
+
+animateNoise();
+
+
+
+
+</script>
+</body>
+</html>

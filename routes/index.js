@@ -11,6 +11,9 @@ router.get("/questions",(req,res) =>{
   res.render("questionnaire");
 })
 
+router.get("/blogs",(req,res) =>{
+  res.render("blogs");
+})
 
 router.get("/api/blogs",async (req,res) =>{
 const blogs = await blogSchema.find()
