@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     
-    gap: 50px;  
+    gap: 8vw;  
     max-width: 916px;
     width: calc(100% - 20px);
   }
@@ -184,4 +184,40 @@
       width: 100%;
     }
   }
-  
+
+
+  @keyframes gradient {
+    0% {
+      rotate: 0deg;
+    }
+    50% {
+      scale: 1.3;
+      transform: skew(2deg, 5deg);
+    }
+    100% {
+      rotate: 360deg;
+    }
+  }
+
+
+#gradient {
+  animation: gradient 10s cubic-bezier(0.215, 0.61, 0.355, 1) reverse infinite;
+}
+
+
+#gradient2 {
+  animation: gradient2 12s cubic-bezier(0.215, 0.61, 0.355, 1) infinite reverse;
+}
+
+@keyframes gradient2 {
+  0% {
+    rotate: 360deg;
+  }
+  50% {
+    scale: 1.6;
+    transform: skew(7deg, 9deg);
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
