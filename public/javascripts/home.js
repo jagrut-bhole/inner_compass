@@ -1,3 +1,23 @@
+const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+
+
+
+
+
+
+
+
 document.getElementById("cards").onmousemove = e => {
     for(const card of document.getElementsByClassName("card")) {
       const rect = card.getBoundingClientRect(),
@@ -35,7 +55,7 @@ async function createCard(rowId) {
       "shadow-md", 
       "absolute", 
       "text-white",
-      "z-99" // Ensure text is readable against the glass background
+      "z-999" // Ensure text is readable against the glass background
   );
   card.innerHTML = await fetchThought(); 
   document.getElementById(rowId).appendChild(card);
