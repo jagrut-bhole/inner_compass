@@ -14,16 +14,16 @@ mongoose
 // Function to populate questions
 async function populateQuestions() {
     const questions = [
-        { text: "I feel good about myself." },
-        { text: "I am able to concentrate on tasks." },
-        { text: "I feel hopeful about the future." },
-        { text: "I enjoy doing activities I used to enjoy." },
-        { text: "I find it easy to relax." },
-        { text: "I feel tired or have little energy." },
-        { text: "I have trouble sleeping or sleep too much." },
-        { text: "I feel like a failure or have let myself or my family down." },
-        { text: "I have little interest or pleasure in doing things." },
-        { text: "I feel nervous or anxious." }
+        { question: "I feel good about myself." },
+        { question: "I am able to concentrate on tasks." },
+        { question: "I feel hopeful about the future." },
+        { question: "I enjoy doing activities I used to enjoy." },
+        { question: "I find it easy to relax." },
+        { question: "I feel tired or have little energy." },
+        { question: "I have trouble sleeping or sleep too much." },
+        { question: "I feel like a failure or have let myself or my family down." },
+        { question: "I have little interest or pleasure in doing things." },
+        { question: "I feel nervous or anxious." }
     ];
 
     try {
