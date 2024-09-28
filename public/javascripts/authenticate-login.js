@@ -32,7 +32,7 @@ form.addEventListener("submit", async (e) => {
       passwordError.textContent = data.errors.password;
     }
     if (data.user) {
-      location.assign('/');
+      location.assign('/questions');
     }
   } catch (err) {
     console.error(err);
