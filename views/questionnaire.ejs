@@ -195,58 +195,54 @@ function addScrollListener() {
   });
 }
 
-      document.getElementById("submit").addEventListener("click", async () => {
-        const selectedAnswers = {};
-        const questionElements =
-          document.querySelectorAll("#questionnaire div");
+document.getElementById("submit").addEventListener("click", async () => {
+  const selectedAnswers = {};
+  const questionContainers = document.querySelectorAll(".question-container");
 
-        let allAnswered = true;
+  let allAnswered = true;
 
-        // Loop through each question and check if an answer is selected
-        questionElements.forEach((questionElement) => {
-          const questionId = questionElement.querySelector(
-            'input[type="radio"]'
-          ).name;
-          const selectedOption = questionElement.querySelector(
-            'input[type="radio"]:checked'
-          );
+  // Loop through each question and check if an answer is selected
+  questionContainers.forEach((questionElement) => {
+    const questionId = questionElement.querySelector('input[type="radio"]').name;
+    const selectedOption = questionElement.querySelector('input[type="radio"]:checked');
 
-          if (selectedOption) {
-            selectedAnswers[questionId] = parseInt(selectedOption.value);
-          } else {
-            allAnswered = false;
-          }
-        });
+    if (selectedOption) {
+      selectedAnswers[questionId] = parseInt(selectedOption.value);
+    } else {
+      allAnswered = false;
+    }
+  });
 
-        if (!allAnswered) {
-          alert("Please answer all the questions before submitting.");
-          return;
-        }
+  if (!allAnswered) {
+    alert("Please answer all the questions before submitting.");
+    return;
+  }
 
-        try {
-          const response = await fetch("/api/submit-quiz", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ answers: selectedAnswers }),
-          });
+  try {
+    const response = await fetch("/api/submit-quiz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ answers: selectedAnswers }),
+    });
 
-          if (!response.ok) {
-            const errorText = await response.text();
-            console.error("Backend error:", response.status, errorText);
-            throw new Error(`Backend error: ${response.status} - ${errorText}`);
-          }
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Backend error:", response.status, errorText);
+      throw new Error(`Backend error: ${response.status} - ${errorText}`);
+    }
 
-          const result = await response.json();
+    const result = await response.json();
 
-          if (result.redirectUrl) {
-            window.location.href = result.redirectUrl;
-          }
-        } catch (error) {
-          console.error("Error submitting quiz:", error);
-        }
-      });
+    if (result.redirectUrl) {
+      window.location.href = result.redirectUrl;
+    }
+  } catch (error) {
+    console.error("Error submitting quiz:", error);
+  }
+});
+
 
       // Call the function to fetch questions when the page loads
       fetchQuestions();
