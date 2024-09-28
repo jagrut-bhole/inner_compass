@@ -1,12 +1,12 @@
 
   #cards {
     display: flex;
-    flex-wrap: wrap;
+  
     justify-content: center;
     align-items: center;
-    
+    flex-wrap: wrap;
     gap: 8vw;  
-    max-width: 916px;
+    max-width: 1206px;
     width: calc(100% - 20px);
   }
   
