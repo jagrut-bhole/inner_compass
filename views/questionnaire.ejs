@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionnaire</title>
-</head>
-<body>
-    <h1>Questionnaire</h1>
-    <form id="questionForm" action="/submit" method="POST">
-        <!-- Sample questions will be inserted here dynamically -->
-    </form>
-    <button type="submit" form="questionForm">Submit</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+      rel="stylesheet" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+      <!-- <link rel="stylesheet" href="../stylesheets/questions.css">   -->
+    <title>Questions</title>
+  </head>
+  <body>
 
-    <script>
-        const questions = [
-            {"question": "How often do you feel tired?", "id": "q1"},
-            {"question": "Do you feel stressed frequently?", "id": "q2"},
-            {"question": "Do you feel motivated to do daily tasks?", "id": "q3"}
-        ];
+    <div class="quiz-container">
+        <h1>Questions</h1>
+        <div id="quiz-start" class="quiz-content">
+            <button onclick="startQuiz()">Start</button>
+        </div>
+        <div id="quiz-content" class="quiz-content hidden">
+            <div class="question" id="question">How are you ?</div>
+            <div class="options" id="options"></div>
+            <button onclick="nextQuestion()">Next 
+                <span class="material-symbols-outlined">
+                arrow_forward
+                </span>
+            </button>
 
-        const form = document.getElementById('questionForm');
+                <div id="quiz-end" class="quiz-content hidden"></div>
+                <h2 id="message"></h2>
+                <p>Your Score: <span id="score"></span></p>
 
-        questions.forEach(q => {
-            const div = document.createElement('div');
-            div.innerHTML = `
-                <p>${q.question}</p>
-                <label><input type="radio" name="${q.id}" value="1" required> Very Low</label>
-                <label><input type="radio" name="${q.id}" value="2"> Low</label>
-                <label><input type="radio" name="${q.id}" value="3"> Medium</label>
-                <label><input type="radio" name="${q.id}" value="4"> High</label>
-                <label><input type="radio" name="${q.id}" value="5"> Very High</label>
-            `;
-            form.appendChild(div);
-        });
-    </script>
-</body>
+                <button onclick="next()">
+                    <span class="material-symbols-outlined">
+                    arrow_forward
+                    </span>
+                </button>
+        </div>
+    </div>
+
+    <script src="../javascripts/questions.js"></script>
+  </body>
 </html>
