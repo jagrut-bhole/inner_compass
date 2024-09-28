@@ -8,18 +8,14 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
-<<<<<<< HEAD
-router.get("/blogs", (req, res) => {
-=======
 
 router.get("/blogs",(req,res) =>{
->>>>>>> 99846b9cf426b4c33fd0527cbee662a5a05360e7
   res.render("blogs");
 })
 
 router.get("/api/blogs",async (req,res) =>{
   const blogs = await blogSchema.find()
-
+  
   res.json(blogs)
 })
 
@@ -49,20 +45,21 @@ router.get("/blogs/:id", (req, res) => {
   res.render("blog-details", { blogId });
 });
 
+router.get("/result", (req, res) => {
+  const resultMessage = req.query.message;
+  res.render("result", { resultMessage });
+});
+
 // Question section
 
-router.get("/questions", (req, res) => {
+router.get("/questions",(req,res) =>{
   res.render("questionnaire");
 });
 
-router.get("/api/questions", async (req, res) => {
-  try {
-    const question = await Question.find();
-    res.json(question);
-  } catch (error) {
-    console.error("Error fetching questions:", error);
-    res.status(500).json({ error: "Error fetching questions" });
-  }
+router.get("/api/questions", async (req,res) => {
+  const questions = await questionSchema.find();
+
+  res.json(questions);
 });
 
 // POST: Submit the quiz and calculate score
@@ -119,3 +116,4 @@ function calculateScore(answers) {
 }
 
 module.exports = router;
+ 
