@@ -8,13 +8,6 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
-<<<<<<< HEAD
-=======
-
-router.get("/blogs", (req, res) => {
-  res.render("blogs");
-});
->>>>>>> d741a612ebf21f5472da96cd268dc1c9fdcccb5a
 
 router.get("/blogs",(req,res) =>{
   res.render("blogs");
@@ -26,8 +19,6 @@ router.get("/api/blogs",async (req,res) =>{
   res.json(blogs)
 })
 
-  res.json(blogs);
-});
 
 router.get("/api/blogs/:id", async (req, res) => {
   const blogs = await blogSchema.findById(req.params.id);
@@ -54,7 +45,10 @@ router.get("/blogs/:id", (req, res) => {
   res.render("blog-details", { blogId });
 });
 
-
+router.get("/result", (req, res) => {
+  const resultMessage = req.query.message;
+  res.render("result", { resultMessage });
+});
 
 // Question section
 
