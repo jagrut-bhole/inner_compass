@@ -16,8 +16,14 @@
             <p>About</p>
         </div>
         <div class="flex gap-10">
+          <a href="/login">
+
             <button id="loginbutton" class="px-4 py-2 border rounded-md">Login</button>
-            <button onclick="signupFunction()" class="p-2 bg-purple-500 text-white rounded-md">Get Started</button>
+          </a>
+          <a href="/signup">
+
+            <button class="p-2 bg-purple-500 text-white rounded-md">Get Started</button>
+          </a>
         </div>
     </nav>
 
@@ -187,22 +193,6 @@
 
        setInterval(radarAnim, 1500);
 
-      //  button code
-      const signupButton = document.getElementById('signupbutton');
-
-      signupButton.addEventListener("click", function() {
-        window.location.href = '/signup'
-      });
-
-      const loginButton  = document.getElementById('loginbutton');
-
-      loginButton.addEventListener("click", function(){
-        window.location.href = '/login'
-      });
-
-      function signupFunction() {
-        window.location.href = "/signup"
-      }
 
 
        const turbulence = document.getElementById('turbulence');
