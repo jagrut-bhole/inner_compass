@@ -1,6 +1,6 @@
 const express = require("express");
 const blogSchema = require("../models/blogs");
-const Question = require("../models/question");
+const questionSchema =  require("../models/question");
 
 const router = express.Router();
 
@@ -8,12 +8,16 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
-router.get("/blogs", (req, res) => {
-  res.render("blogs");
-});
 
-router.get("/api/blogs", async (req, res) => {
-  const blogs = await blogSchema.find();
+router.get("/blogs",(req,res) =>{
+  res.render("blogs");
+})
+
+router.get("/api/blogs",async (req,res) =>{
+  const blogs = await blogSchema.find()
+  
+  res.json(blogs)
+})
 
 router.get("/api/blogs/:id", async (req, res) => {
   try {
@@ -39,18 +43,14 @@ router.get("/blogs/:id", (req, res) => {
 
 // Question section
 
-router.get("/questions", (req, res) => {
+router.get("/questions",(req,res) =>{
   res.render("questionnaire");
 });
 
-router.get('/api/questions', async (req, res) => {
-  try {
-      const question = await Question.find(); 
-      res.json(question); 
-  } catch (error) {
-      console.error('Error fetching questions:', error);
-      res.status(500).json({ error: 'Error fetching questions' });
-  }
+router.get("/api/questions", async (req,res) => {
+  const questions = await questionSchema.find();
+
+  res.json(questions);
 });
 
 // POST: Submit the quiz and calculate score
