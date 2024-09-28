@@ -4,13 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Result | Inner_Compass</title>
-    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="result-container">
-      <h1>Your Quiz Result</h1>
-      <p><%= resultMessage %></p>
-      <a href="/questions" class="btn">Go Back to Quiz</a>
+    <div class="result-container w-full top-0 h-screen overflow-x-hidden">
+      <nav class="flex justify-between w-full items-center h-20 px-10 relative">
+        <p class="font-mono text-xl tracking-wide md:text-2xl">inner_compass</p>
+        <div class="flex gap-24 relative z-[200] hidden md:block md:flex">
+          <a href="/blogs">
+            <p>Awareness</p>
+          </a>
+          <a href="/about">
+            <p>About</p>
+          </a>
+
+        </div>
+        <div class="flex gap-10 relative z-[200]">
+          
+          <a href="/signup">
+
+            <button class="p-2 bg-purple-500 text-white rounded-md">
+              Get Back to Questions</button>
+          </a>
+        </div>
+    </nav>
+
+    <div class="h-[80vh] w-full flex justify-center items-center flex-col gap-6">
+      <h1 class="text-4xl font-bold text-center text-purple-500">Result</h1>
+      <div class="p-12 bg-white rounded-md shadow-md">
+        <p class="text-center text-2xl "><%= resultMessage %></p>
+      </div>
+    </div>
+      
     </div>
   </body>
 </html>
