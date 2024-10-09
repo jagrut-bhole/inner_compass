@@ -23,7 +23,12 @@ async function populateQuestions() {
         { question: "I have trouble sleeping or sleep too much." },
         { question: "I feel like a failure or have let myself or my family down." },
         { question: "I have little interest or pleasure in doing things." },
-        { question: "I feel nervous or anxious." }
+        { question: "I feel nervous or anxious." },
+        { question: "I have people who care about me." },
+        { question: "I feel supported by my friends or family." },
+        { question: "I can cope with stress effectively." },
+        { question: "I find joy in small things." },
+        { question: "I feel connected to others." }
     ];
 
     try {

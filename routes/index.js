@@ -3,7 +3,7 @@ const blogSchema = require("../models/blogs");
 const questionSchema = require("../models/question");
 const router = express.Router();
 
-const {requireAuth,checkUser} = require('../middleware/authmiddleware');
+const { requireAuth, checkUser } = require("../middleware/authmiddleware");
 
 router.get("*", checkUser);
 
@@ -73,12 +73,22 @@ router.post("/api/submit-quiz", (req, res) => {
     const totalScore = calculateScore(answers);
 
     let resultMessage;
+
     if (totalScore >= 40) {
       resultMessage =
-        "You are fully depressed, Help ghe lavdya.... Marshil bhadvya";
+        "You are fully depressed, help is available. Please reach out.";
+    } else if (totalScore >= 30) {
+      resultMessage =
+        "You are experiencing significant distress. It may help to talk to someone.";
+    } else if (totalScore >= 20) {
+      resultMessage =
+        "You might be feeling down. Consider checking in with friends or family.";
+    } else if (totalScore >= 10) {
+      resultMessage =
+        "You seem to be doing okay, but keep monitoring your feelings.";
     } else {
       resultMessage =
-        "You are not depressed, continue to monitor your mental health.";
+        "You are not depressed; continue to monitor your mental health.";
     }
 
     req.session.resultMessage = resultMessage;
@@ -93,7 +103,6 @@ router.post("/api/submit-quiz", (req, res) => {
 });
 
 router.get("/result", requireAuth, (req, res) => {
-  
   console.log("Session resultMessage:", req.session.resultMessage);
 
   const resultMessage = req.session.resultMessage;
@@ -114,4 +123,11 @@ function calculateScore(answers) {
   return totalScore;
 }
 
+router.get('/main',(req,res) => {
+  res.render('main');
+});
+
+router.get('/contact-us',(req,res)=>{
+  res.render('contactus')
+})
 module.exports = router;
