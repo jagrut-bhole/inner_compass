@@ -76,19 +76,19 @@ router.post("/api/submit-quiz", (req, res) => {
 
     if (totalScore >= 40) {
       resultMessage =
-        "You are fully depressed, help is available. Please reach out.";
+        "It seems like you're going through a very difficult time. You may be experiencing significant symptoms of depression. Remember, help is available, and you don't have to go through this alone. Please reach out to a mental health professional or someone you trust—support is closer than you think.";
     } else if (totalScore >= 30) {
       resultMessage =
-        "You are experiencing significant distress. It may help to talk to someone.";
+        "You may be dealing with considerable distress and emotional strain right now. It could be helpful to talk to someone about how you're feeling—whether it’s a counselor, therapist, or a close friend. You deserve support, and it’s okay to ask for help.";
     } else if (totalScore >= 20) {
       resultMessage =
-        "You might be feeling down. Consider checking in with friends or family.";
+        "It seems like you're feeling a bit down or low. Everyone goes through tough times, but it’s important to take care of your mental health. Try reaching out to a friend or family member to talk, or engage in activities that make you feel good.";
     } else if (totalScore >= 10) {
       resultMessage =
-        "You seem to be doing okay, but keep monitoring your feelings.";
+        "You're doing relatively well, but you may be experiencing some mild symptoms of stress or low mood. Keep checking in with yourself and pay attention to any changes in how you're feeling. Regular self-care and talking to loved ones can help maintain your well-being.";
     } else {
       resultMessage =
-        "You are not depressed; continue to monitor your mental health.";
+        "It looks like you're in a good mental space at the moment. Keep monitoring your mental health and stay connected with people who care about you. Remember, maintaining good mental health is a continuous process.";
     }
 
     req.session.resultMessage = resultMessage;
@@ -123,15 +123,15 @@ function calculateScore(answers) {
   return totalScore;
 }
 
-router.get('/main',(req,res) => {
-  res.render('main');
+router.get("/main", (req, res) => {
+  res.render("main");
 });
 
-router.get('/contact-us',(req,res)=>{
-  res.render('contactus')
-})
+router.get("/contact-us", (req, res) => {
+  res.render("contactus");
+});
 
-router.get('/about',(req,res)=> {
-  res.render('about')
-})
+router.get("/about", (req, res) => {
+  res.render("about");
+});
 module.exports = router;

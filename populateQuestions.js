@@ -32,7 +32,7 @@ async function populateQuestions() {
         { question: "I put off making decisions more often than I used to." },
         { question: "When I feel down, friends and family can't cheer me up." },
         { question: "I think about people being better off without me." },
-        { question: "I have less interest in sex than I used to." },
+        { question: "I have less interest in study than I used to." },
         { question: "I'm eating much less (or much more) than normal and it's affecting my weight." },
     ];
 
