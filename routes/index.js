@@ -130,4 +130,8 @@ router.get('/main',(req,res) => {
 router.get('/contact-us',(req,res)=>{
   res.render('contactus')
 })
+
+router.get('/about',(req,res)=> {
+  res.render('about')
+})
 module.exports = router;
