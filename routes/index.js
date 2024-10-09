@@ -74,18 +74,18 @@ router.post("/api/submit-quiz", (req, res) => {
 
     let resultMessage;
 
-    if (totalScore >= 40) {
+    if (totalScore >= 80) {
       resultMessage =
-        "It seems like you're going through a very difficult time. You may be experiencing significant symptoms of depression. Remember, help is available, and you don't have to go through this alone. Please reach out to a mental health professional or someone you trust—support is closer than you think.";
-    } else if (totalScore >= 30) {
+        "It seems like you're going through a very difficult time. You may be experiencing significant symptoms of depression. Remember, help is available, and you don't have to go through this alone. Please reach out to a mental health professional or someone you trust-support is closer than you think.";
+    } else if (totalScore >= 60) {
       resultMessage =
         "You may be dealing with considerable distress and emotional strain right now. It could be helpful to talk to someone about how you're feeling—whether it’s a counselor, therapist, or a close friend. You deserve support, and it’s okay to ask for help.";
-    } else if (totalScore >= 20) {
+    } else if (totalScore >= 40) {
       resultMessage =
         "It seems like you're feeling a bit down or low. Everyone goes through tough times, but it’s important to take care of your mental health. Try reaching out to a friend or family member to talk, or engage in activities that make you feel good.";
-    } else if (totalScore >= 10) {
+    } else if (totalScore >= 20) {
       resultMessage =
-        "You're doing relatively well, but you may be experiencing some mild symptoms of stress or low mood. Keep checking in with yourself and pay attention to any changes in how you're feeling. Regular self-care and talking to loved ones can help maintain your well-being.";
+        "It looks like you're in a good mental space at the moment. Keep monitoring your mental health and stay connected with people who care about you. Remember, maintaining good mental health is a continuous process.";
     } else {
       resultMessage =
         "It looks like you're in a good mental space at the moment. Keep monitoring your mental health and stay connected with people who care about you. Remember, maintaining good mental health is a continuous process.";
